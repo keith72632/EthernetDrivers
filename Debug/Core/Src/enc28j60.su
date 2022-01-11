@@ -1,8 +1,8 @@
-enc28j60.c:12:9:ENC28_readOp	24	static
-enc28j60.c:24:6:ENC28_writeOp	24	static
-enc28j60.c:34:9:ENC28_readReg8	16	static
-enc28j60.c:40:6:ENC28_writeReg8	16	static
-enc28j60.c:46:9:ENC28_readReg16	24	static
-enc28j60.c:54:6:ENC28_writeReg16	16	static
-enc28j60.c:60:6:ENC28_setBank	24	static
-enc28j60.c:71:6:ENC28_Init	4	static
+enc28j60.c:14:9:ENC28_readOp	24	static
+enc28j60.c:26:6:ENC28_writeOp	24	static
+enc28j60.c:36:9:ENC28_readReg8	16	static
+enc28j60.c:42:6:ENC28_writeReg8	16	static
+enc28j60.c:48:9:ENC28_readReg16	24	static
+enc28j60.c:56:6:ENC28_writeReg16	16	static
+enc28j60.c:62:6:ENC28_setBank	16	static
+enc28j60.c:72:6:ENC28_Init	8	static

@@ -11,15 +11,47 @@
 #include <stdint.h>
 #include "stm32f4xx_hal.h"
 
+
+
 //Operations defines
 #define ENC28_READ_CTRL_REG  0x00
 #define ENC28_WRITE_CTRL_REG 0x02
 #define ENC28_BIT_FIELD_CLR  0x05
 #define ENC28_BIT_FIELD_SET  0x04
+#define ENC28_SOFT_RESET     0x07
 
 //Masks and some constants
 #define ADDR_MASK           0x1F
 #define BANK_MASK           0x60  //0110 0000
+#define RXSTART_INIT        0x0000
+#define RXSTOP_INIT         0x0BFF
+#define TXSTART_INIT        0x0C00
+#define TXSTOP_INIT         0x11FF
+
+//Recieve Filters Bits
+#define ERXFCON_UCEN        0x08
+#define ERXFCON_ANDOR       0x07
+#define ERXFCON_CRCEN       0x06
+
+//Mac Control Register One Bits
+#define MACON1_MARXEN       0x01
+#define MACON1_TXPAUS       0x04
+#define MACON1_RXPAUS       0x03
+#define MACON1_PASSALL      0x02
+
+//MAC Control Register 3 bits
+#define MACON3_PADFG0       0x06
+#define MACON3_TXCREN       0x05
+#define MACON3_FRMLNEN      0x02
+
+//MAC Frame Length and Address
+#define MAX_FRAMELEN        1500U
+#define MAC_1                0x36
+#define MAC_2                0x30
+#define MAC_3                0x2D
+#define MAC_4                0x69
+#define MAC_5                0x69
+#define MAC_6                0x74
 
 //Bank0 - control registers and addresses
 #define ERDPT               0x00
@@ -70,6 +102,7 @@
 #define ECON1_BSEL0         0x01
 #define ECON2_BSEL1         0x02
 
+#define ESTAT_CLKRDY        0x01
 
 uint8_t ENC28_readOp(uint8_t oper, uint8_t addr);
 void ENC28_writeOp(uint8_t oper, uint8_t addr, uint8_t data);
@@ -77,8 +110,8 @@ void ENC28_writeOp(uint8_t oper, uint8_t addr, uint8_t data);
 uint8_t ENC28_readReg8(uint8_t addr);
 void ENC28_writeReg8(uint8_t addr, uint8_t data);
 
-uint8_t ENC28_readReg16(uint8_t addr);
-void ENC28_writeReg16(uint8_t addr, uint8_t data);
+uint8_t ENC28_readReg16(uint16_t addr);
+void ENC28_writeReg16(uint16_t addr, uint16_t data);
 
 void ENC28_setBank(uint8_t addr);
 

@@ -46,7 +46,7 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
 
-  uint8_t spiretvalue = ENC28_readOp(0x00, 0x00);
+  ENC28_Init();
   while (1)
   {
 

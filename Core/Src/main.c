@@ -46,7 +46,17 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
 
-  ENC28_Init();
+//  ENC28_Init();
+
+
+//  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_7, GPIO_PIN_RESET);
+//
+//  spiData[0] = 0x00;
+//
+//  HAL_SPI_Transmit(&hspi1, spiData, 1, 100);
+//  HAL_SPI_Receive(&hspi1, &spiData[1], 1, 100);
+//  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_7, GPIO_PIN_SET);
+  uint8_t t = ENC28_readReg8(0x00);
   while (1)
   {
 
